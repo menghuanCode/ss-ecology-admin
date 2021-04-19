@@ -131,3 +131,4 @@ const errorHandler = (error: ResponseError) => {
 export const request: RequestConfig = {
   errorHandler,
 };
+

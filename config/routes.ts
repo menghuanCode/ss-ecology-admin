@@ -20,6 +20,7 @@
     name: 'welcome',
     icon: 'smile',
     component: './Welcome',
+    wrappers: ['@/wrappers/auth'],
   },
   {
     path: '/admin',
