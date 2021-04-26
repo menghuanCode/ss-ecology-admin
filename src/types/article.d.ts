@@ -1,6 +1,6 @@
 // [common]获取上传签名请求
 export interface ArticleUploadParams {
-  upload_type: string; //community-圈子社区 tag-话题标签 op_promotion-运营推广  op_game-运营游戏 op_game_vote-运营游戏投票
+  upload_type: string; // community-圈子社区 tag-话题标签 op_promotion-运营推广  op_game-运营游戏 op_game_vote-运营游戏投票
 }
 // [common]获取上传签名数据
 export interface ArticleUploadResponseData {
@@ -22,19 +22,19 @@ export interface ArticleEditParams {
 // 文章编辑数据
 export interface ArticleEditResponseData {
   article_type?: string; // 文章类型 long长文 short短文
-  longitude?: string; //纬度
-  latitude?: string; //经度
+  longitude?: string; // 纬度
+  latitude?: string; // 经度
   title?: string; // 标题
-  content?: string; //内容
+  content?: string; // 内容
   tag_ids?: {
     id?: string;
     value?: string;
   }[];
-  community_id?: string; //社区id
-  residential_quarter_id?: string; //小区id
-  article_id?: string; //文章id有已存在草稿情况下需要传
-  is_stash?: boolean; //是否暂存,草稿功能
-  imgs?: string[]; //图片数组
+  community_id?: string; // 社区id
+  residential_quarter_id?: string; // 小区id
+  article_id?: string; // 文章id有已存在草稿情况下需要传
+  is_stash?: boolean; // 是否暂存,草稿功能
+  imgs?: string[]; // 图片数组
 }
 
 // 文章详情请求
@@ -114,19 +114,19 @@ export interface ArticleResponseData {
 // 文章创建请求
 export interface ArticleCreateParams {
   article_type?: string; // 文章类型 long长文 short短文
-  longitude?: string; //纬度
-  latitude?: string; //经度
+  longitude?: string; // 纬度
+  latitude?: string; // 经度
   title?: string; // 标题
-  content?: string; //内容
+  content?: string; // 内容
   tag_ids?: {
     id?: string;
     value?: string;
   }[];
-  community_id?: string; //社区id
-  residential_quarter_id?: string; //小区id
-  article_id?: string; //文章id有已存在草稿情况下需要传
-  is_stash?: boolean; //是否暂存,草稿功能
-  imgs?: string[]; //图片数组
+  community_id?: string; // 社区id
+  residential_quarter_id?: string; // 小区id
+  article_id?: string; // 文章id有已存在草稿情况下需要传
+  is_stash?: boolean; // 是否暂存,草稿功能
+  imgs?: string[]; // 图片数组
 }
 // 文章禁用/下架请求
 export interface ArticleDisableParams {

@@ -52,7 +52,7 @@ export interface CommunityEditResponseData {
   img_url?: string;
   description?: string;
 }
-//圈子删除请求
+// 圈子删除请求
 export interface CommunityDeleteParams {
   id: number;
 }

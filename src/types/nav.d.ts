@@ -40,7 +40,7 @@ export interface NavEditResponseData {
   residential_quarter_id: string;
   img_url: string;
 }
-//导航删除请求
+// 导航删除请求
 export interface NavDeleteParams {
   id: number;
 }

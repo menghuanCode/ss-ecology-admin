@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal, Form, Input, Tabs,Upload } from 'antd';
+import { Button, Modal, Form, Input, Tabs, Upload } from 'antd';
 import { UserOutlined, LockOutlined, SafetyOutlined } from '@ant-design/icons';
 import imgURL from '../../assets/image/123.png';
 import './index.less';
@@ -113,15 +113,14 @@ const PersonalCenter = () => {
                 onClick={() => {
                   console.log(1123);
                 }}
-              >获取验证码</button>
+              >
+                获取验证码
+              </button>
             </Form.Item>
-            <Form.Item
-              
-              rules={[{ required: true, message: '请输入密码' }]}
-            >
+            <Form.Item rules={[{ required: true, message: '请输入密码' }]}>
               <Input placeholder="请输入新密码" prefix={<LockOutlined />} size="large" />
             </Form.Item>
-            <Form.Item >
+            <Form.Item>
               <Input placeholder="重新输入新密码" prefix={<LockOutlined />} size="large" />
             </Form.Item>
             <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>

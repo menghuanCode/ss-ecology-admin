@@ -56,7 +56,7 @@ export interface DevCheckParams {
   query_id?: number;
   permission_key?: string;
 }
-// 推送日志 请求 
+// 推送日志 请求
 export interface DevLogParams {
   user_id?: number;
   username?: string;

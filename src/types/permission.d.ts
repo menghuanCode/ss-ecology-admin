@@ -1,6 +1,6 @@
 // 权限列表请求
 export interface PermissionParams {
-  mark: string; //接口标记枚举
+  mark: string; // 接口标记枚举
 }
 // 权限列表数据
 export interface PermissionResponseData {
@@ -19,7 +19,7 @@ export interface PermissionResponseData {
 }
 // 权限列表请求
 export interface PermissionDetailsParams {
-  id: number; //接口标记枚举
+  id: number; // 接口标记枚举
 }
 // 权限列表数据
 export interface PermissionDetailsResponseData {
@@ -38,7 +38,7 @@ export interface PermissionDetailsResponseData {
 }
 
 // api管理接口
-//api列表 请求
+// api列表 请求
 export interface InterfacesParams {
   page: number;
   page_size?: number;
@@ -47,7 +47,7 @@ export interface InterfacesParams {
   mark?: string;
 }
 
-//api列表 数据
+// api列表 数据
 export interface InterfacesResponseData {
   id?: string;
   app_name?: string;

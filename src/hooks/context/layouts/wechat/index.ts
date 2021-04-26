@@ -1,14 +1,14 @@
 import React from 'react';
 import { noop } from 'lodash';
-import { LocationDescriptor, LocationState } from 'history';
-import { UserInfoResponseType } from '@/types/user';
+import type { LocationDescriptor, LocationState } from 'history';
+import type { UserInfoResponseType } from '@/types/user';
 
 export interface AppContextProps {
-  currentPage: LocationDescriptor<LocationState>
-  prevPage: LocationDescriptor<LocationState>
-  userInfo: UserInfoResponseType
-  updateRoutes: () => void
-  updateUserInfo: () => void
+  currentPage: LocationDescriptor<LocationState>;
+  prevPage: LocationDescriptor<LocationState>;
+  userInfo: UserInfoResponseType;
+  updateRoutes: () => void;
+  updateUserInfo: () => void;
 }
 
 export const AppContext = React.createContext<AppContextProps>({
@@ -17,4 +17,4 @@ export const AppContext = React.createContext<AppContextProps>({
   userInfo: null,
   updateRoutes: noop,
   updateUserInfo: noop,
-})
+});

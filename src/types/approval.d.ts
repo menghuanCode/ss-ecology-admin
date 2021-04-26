@@ -59,7 +59,7 @@ export interface ApprovalResponseData {
 }
 // 审核详情请求
 export interface ApprovalDetailParams {
-  path_article_id: string; 
+  path_article_id: string;
 }
 // 审核详情数据
 export interface ApprovalDetailResponseData {

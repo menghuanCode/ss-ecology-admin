@@ -1,7 +1,7 @@
 import React from 'react';
 import { Upload, message } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import './avatar.less'
+import './avatar.less';
 
 function getBase64(img, callback) {
   const reader = new FileReader();

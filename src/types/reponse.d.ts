@@ -1,14 +1,13 @@
-
-export interface HttpResponseData<D=any> {
+export interface HttpResponseData<D = any> {
   code: number;
   message: string;
-  errors: Array<string>
-  data: D
+  errors: string[];
+  data: D;
 }
 
 export interface HttpResponseError {
   code: number;
   message: string;
-  errors: Array<string>
-  data: null
+  errors: string[];
+  data: null;
 }

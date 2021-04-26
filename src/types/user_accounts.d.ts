@@ -1,6 +1,6 @@
 // 前台用户详情请求
 export interface User_accountsDetailParams {
-  path_user_id: string; //前台用户id;
+  path_user_id: string; // 前台用户id;
 }
 // 前台用户详情数据
 export interface User_accountsDetailResponseData {

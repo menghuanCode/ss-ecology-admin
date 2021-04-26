@@ -108,7 +108,7 @@ export interface RoleEditResponseData {
   name?: string;
   description?: string;
 }
-//角色删除请求
+// 角色删除请求
 export interface RoleDeleteParams {
   id: number;
 }

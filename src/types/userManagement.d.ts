@@ -1,23 +1,23 @@
 // 用户管理接口
-//获取图形验证码
+// 获取图形验证码
 export interface UserCaptchaParams {
   captcha_id?: string;
   captcha_image?: string;
   code?: number;
 }
-//检验图形验证码
+// 检验图形验证码
 export interface UserCaptchaParams {
   captcha_id?: string;
   captcha_value?: string;
 }
-//系统用户列表 请求
+// 系统用户列表 请求
 export interface UserParams {
   page: number;
   page_size?: number;
   keyword?: string;
   is_check_user?: boolean;
 }
-//系统用户列表 数据
+// 系统用户列表 数据
 export interface UserResponseData {
   id?: string;
   user_id?: string;
@@ -91,7 +91,7 @@ export interface UserResetResponseData {
 //   old_password?: string;
 //   phone?: string;
 // }
-//系统用户删除 请求
+// 系统用户删除 请求
 export interface UserDeleteParams {
   id: number;
 }

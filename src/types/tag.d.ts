@@ -30,11 +30,11 @@ export interface TagEnableParams {
 export interface TagDisableParams {
   id: number;
 }
-//用户自定义话题详情请求
+// 用户自定义话题详情请求
 export interface TagUserParams {
   id: number;
 }
-//用户自定义话题详情数据
+// 用户自定义话题详情数据
 export interface TagUserResponseData {
   id?: string;
   tag_name?: string;
@@ -50,7 +50,7 @@ export interface TagUserResponseData {
   row_index?: number;
   is_recommend?: boolean;
 }
-//用户自定义话题删除请求
+// 用户自定义话题删除请求
 export interface TagUserDeleteParams {
   id: number;
 }
@@ -109,7 +109,7 @@ export interface TagEditResponseData {
   residential_quarter_id?: string;
   img_url?: string;
 }
-//热门话题删除请求
+// 热门话题删除请求
 export interface TagDeleteParams {
   id: number;
 }
