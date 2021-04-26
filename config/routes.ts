@@ -44,6 +44,12 @@
     component: './TableList',
   },
   {
+    name: 'newPage',
+    icon: 'table',
+    path: '/account/center',
+    component: './NewPage',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },
