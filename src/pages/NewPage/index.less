@@ -1,245 +1,178 @@
-.ant-modal-content {
-  // width: 1029px;
-  height: 628px;
+.user-icon-box {
+  width: 315px;
+  height: 342px;
+  opacity: 1;
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 2px 16px 3px rgba(39, 38, 42, 0.08);
-  opacity: 1;
 
-  .ant-modal-header {
-    padding-top: 40px;
-    padding-left: 40px;
-    border-bottom: 0px;
-    border-radius: 8px;
+  .user-icon-header {
+    display: flex;
+    width: 315px;
+    height: 154px;
+    padding-top: 30px;
+    padding-left: 30px;
+    background-image: url(../../assets/image/gszx_bg.svg);
 
-    .ant-modal-title {
+    .user-icon-avatar {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: violet;
+      // margin-right: 10px;
+    }
+
+    .user-icon-nickname {
+      padding-left: 10px;
+
+      p:first-of-type {
+        width: 60px;
+        height: 28px;
+        opacity: 1;
+        font-size: 20px;
+        font-family: PingFangSC, PingFangSC-Semibold;
+        font-weight: 600;
+        text-align: left;
+        color: #ffffff;
+        line-height: 28px;
+        margin-bottom: 2px;
+        margin-top: 6px;
+      }
+
+      p:last-of-type {
+        width: 84px;
+        height: 20px;
+        opacity: 1;
+        font-size: 14px;
+        font-family: PingFangHK, PingFangHK-Regular;
+        font-weight: 400;
+        text-align: left;
+        color: #b0a5f3;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .user-icon-center {
+    padding: 0px 30px;
+    cursor: default;
+
+    .center-icon-Information {
       width: 64px;
       height: 22px;
-      color: #252441;
-      font-weight: 600;
+      opacity: 1;
       font-size: 16px;
-      // font-family: PingFangHK, PingFangHK-Semibold;
-      line-height: 22px;
+      font-family: PingFangHK, PingFangHK-Medium;
+      font-weight: 500;
       text-align: left;
-      opacity: 1;
-    }
-  }
-
-  .ant-modal-body {
-    padding-top: 33px;
-    padding-left: 82px;
-
-    .ant-tabs-tab {
-      width: 201px;
-      height: 48px;
-      margin: 0px !important;
-      opacity: 1;
-
-      .ant-tabs-tab-btn {
-        width: 52px;
-        height: 18px;
-        color: #848498;
-        // color: #a694f5;
-        font-weight: 500;
-        font-size: 13px;
-        font-family: PingFangHK, PingFangHK-Medium;
-        line-height: 18px;
-        opacity: 1;
-      }
+      color: #545469;
+      line-height: 22px;
+      margin-bottom: 20px;
     }
 
-    .ant-input-affix-wrapper {
-      border: none;
-      width: 362px;
-      height: 52px;
-      background: #ffffff;
-      border: 1px solid #e6e6f1;
-      border-radius: 9px;
-      opacity: 1;
-    }
-
-    .input-affix-code-box {
+    .center-icon-Information-box {
+      padding-bottom: 7px;
       display: flex;
 
-      .ant-input-affix-code {
-        width: 219px;
-        height: 52px;
-        background: #ffffff;
-        border: 1px solid #e6e6f1;
-        border-radius: 9px;
+      p:first-of-type {
+        width: 56px;
+        height: 20px;
         opacity: 1;
+        font-size: 14px;
+        font-family: PingFangHK, PingFangHK-Regular;
+        font-weight: 400;
+        text-align: left;
+        color: #9090a8;
+        line-height: 20px;
+        margin-bottom: 0px;
+        margin-right: 28px;
       }
 
-      // 按钮样式
-      .center-obtain-code {
-        width: 122px;
-        height: 52px;
-        margin-left: 22px;
-        color: #8672f0;
-        vertical-align: top;
-        background: #ffffff;
-        border: 1px solid #e6e6f1;
-        border-radius: 9px;
+      p:last-of-type {
+        width: 150px;
+        height: 20px;
         opacity: 1;
-        transition: all 0.5s;
-        cursor: pointer;
+        font-size: 14px;
+        font-family: PingFangHK, PingFangHK-Regular;
+        font-weight: 400;
+        text-align: left;
+        color: #545469;
+        line-height: 20px;
+        margin-bottom: 0px;
       }
+    }
 
-      .center-obtain-code:hover {
-        box-shadow: 0 0 0 2px rgba(112, 59, 235, 1);
-      }
+    .center-icon-Information-box:last-of-type {
+      padding-top: 7px;
+      padding-bottom: 0px;
+
     }
   }
 
-  .ant-modal-footer {
-    border: 0px;
-  }
-
-  .ant-input-group-addon {
-    width: 56px;
-    height: 20px;
-    padding-right: 29px;
-    padding-left: 13px;
-    color: #9090a8;
-    font-weight: 400;
-    font-size: 14px;
-    font-family: PingFangSC, PingFangSC-Regular;
-    line-height: 20px;
-    text-align: left;
-    background: #ffffff;
-    border: 0px;
-    opacity: 1;
-  }
-}
-
-.ant-tabs-tab-active {
-  color: #a694f5;
-  background: #f8f6ff !important;
-  border-right: 4px solid #8672f0 !important;
-}
-
-// 输入框样式
-.ant-input-affix-wrapper:hover {
-  box-shadow: 0 0 0 2px rgba(112, 59, 235, 0.5);
-}
-
-.ant-input-affix-wrapper:focus,
-.ant-input-affix-wrapper-focused {
-  border: none;
-  box-shadow: 0 0 0 2px rgba(112, 59, 235, 1);
-}
-
-// 文本样式
-.center-Basic-Information {
-  width: 64px;
-  height: 76px;
-  // padding-top: ;
-  text-align: center;
-
-  span {
-    width: 64px;
-    height: 22px;
-    color: #252441;
-    font-weight: 600;
-    font-size: 16px;
-    font-family: PingFangHK, PingFangHK-Semibold;
-    line-height: 76px;
-    text-align: left;
-    opacity: 1;
-  }
-}
-
-// 头像样式
-.ImageAvatar-box {
-  position: relative;
-  width: 87px;
-  height: 87px;
-  // background: aqua;
-  opacity: 1;
-
-  .Image-Avatar {
+  .user-icon-footer {
     width: 100%;
-    height: 100%;
-    border-radius: 50%;
-  }
+    display: flex;
 
-  .Image-Avatar-btn {
-    position: absolute;
-    top: 51px;
-    left: 3px;
-    width: 82px;
-    height: 36px;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 0px 0px 36px 36px;
-    opacity: 1;
+    .user-icon-btn:first-of-type {
+      position: relative;
+    }
 
-    .Image-Avatar-btn-modify {
-      width: 34px;
-      height: 23px;
-      color: #ffffff;
-      font-weight: 400;
-      font-size: 14px;
-      font-family: PingFangSC, PingFangSC-Regular;
-      line-height: 36px;
-      opacity: 1;
+    .user-icon-btn:first-of-type::after {
+      content: " ";
+      display: block;
+      background: #f3f2f7;
+      width: 1px;
+      height: 20px;
+      position: absolute;
+      right: 0;
+      top: 46px;
+    }
+
+    .user-icon-btn {
+      width: 50%;
+      height: 92px;
+      text-align: center;
+      padding: 20px 40px;
+
+      .user-btn-hover:hover {
+        cursor: pointer;
+
+        .user-center {
+          background-image: url(../../assets/image/grzx_me_d.svg);
+        }
+
+        .user-abort {
+          background-image: url(../../assets/image/grzx_me_on.svg);
+        }
+      }
+
+      .user-icon {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+        margin: 0 auto;
+        margin-bottom: 4px;
+      }
+
+      .user-center {
+        background-image: url(../../assets/image/grzx_me.svg);
+      }
+
+      .user-abort {
+        background-image: url(../../assets/image/grzx_on.svg);
+      }
+
+      .user-text {
+        width: 48px;
+        height: 17px;
+        opacity: 1;
+        font-size: 12px;
+        font-family: PingFangHK, PingFangHK-Regular;
+        font-weight: 400;
+        color: #545469;
+        line-height: 17px;
+        margin: 0 auto;
+      }
     }
   }
 }
-
-
-
-// 基本信息输入框样式
-.center-Basic-Information-box {
-  width: 362px;
-  height: 52px;
-  opacity: 1;
-  background: #ffffff;
-  // border: 1px solid #e6e6f1;
-  display: flex;
-
-  p:first-of-type {
-    width: 56px;
-    height: 20px;
-    opacity: 1;
-    font-size: 14px;
-    font-family: PingFangSC, PingFangSC-Regular;
-    font-weight: 400;
-    text-align: left;
-    color: #9090a8;
-    line-height: 20px;
-    margin: 16px 20px 16px 13px;
-  }
-
-  p:last-of-type {
-    width: 200px;
-    height: 20px;
-    opacity: 1;
-    font-size: 14px;
-    font-family: PingFangSC, PingFangSC-Regular;
-    font-weight: 400;
-    text-align: left;
-    color: #535368;
-    line-height: 20px;
-    margin: 16px 20px 16px 20px;
-  }
-
-  // border-radius: 9px;
-}
-
-// // 保持按钮样式
-// .center-obtain-code-sub {
-//   width: 362px;
-//   height: 52px;
-//   margin-left: -220px;
-//   color: #ffffff;
-//   background: #703beb;
-//   border: 0px;
-//   border-radius: 8px;
-//   opacity: 1;
-// }
-
-// .center-obtain-code-sub:hover {
-//   background: #703beb;
-//   color: #fff;
-// }
