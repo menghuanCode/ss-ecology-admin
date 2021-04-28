@@ -2,7 +2,7 @@
 import { Button } from 'antd';
 // import UserIcon from './components/userIcon';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './index.less';
 import { Modal } from 'antd';
 import PersonalCenter from './components/personalCenter';
@@ -51,10 +51,23 @@ const UserIcon: React.FC<UserIconFormProps> = ({ isDisplay, setDisplay }) => {
     console.log('Received values of form: ', values);
     setVisible(false);
   };
+const displayRef = useRef(null);
+  useEffect(() => {
+    function handler(event) {
+      if (!displayRef.current?.contains(event.target)) {
+        setDisplay(false);
+      }
+    }
+    window.addEventListener('click', handler);
+    return () => window.removeEventListener('click', handler);
+  },[]);
+
   return (
-    <div className="user-icon-box" style={{ display: isDisplay ? 'block' : 'none' }}>
+    <div className="user-icon-box" style={{ display: isDisplay ? 'block' : 'none' }} ref={displayRef}>
       <div className="user-icon-header">
-        <div className="user-icon-avatar"><img></img></div>
+        <div className="user-icon-avatar">
+          <img></img>
+        </div>
         <div className="user-icon-nickname">
           <p>财神爷</p>
           <p>您的个人中心</p>
@@ -112,13 +125,14 @@ const UserIcon: React.FC<UserIconFormProps> = ({ isDisplay, setDisplay }) => {
 };
 const NewPage = () => {
   const [isDisplay, setDisplay] = useState(false);
- 
   return (
     <div>
       <Button
         type="primary"
-        onClick={() => {
-          setDisplay(true);
+        onClick={(e) => {
+          console.log(e,'123');
+          e.nativeEvent.stopImmediatePropagation();
+          setDisplay(!isDisplay);
         }}
       >
         个人中心
