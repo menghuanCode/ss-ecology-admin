@@ -128,12 +128,22 @@
 // 输入框样式
 .ant-input-affix-wrapper:hover {
   box-shadow: 0 0 0 2px rgba(112, 59, 235, 0.5);
+
+
 }
 
 .ant-input-affix-wrapper:focus,
 .ant-input-affix-wrapper-focused {
   border: none;
   box-shadow: 0 0 0 2px rgba(112, 59, 235, 1);
+
+  span {
+    svg {
+      g {
+        fill: #703BEB;
+      }
+    }
+  }
 }
 
 // 文本样式
@@ -180,6 +190,7 @@
     background: rgba(0, 0, 0, 0.5);
     border-radius: 0px 0px 36px 36px;
     opacity: 1;
+
     .modify {
       width: 34px;
       height: 23px;
