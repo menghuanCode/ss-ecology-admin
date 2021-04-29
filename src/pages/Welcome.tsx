@@ -16,6 +16,7 @@ export default (): React.ReactNode => {
   const intl = useIntl();
   return (
     <PageContainer>
+      <div className="box">213213</div>
       <Card>
         <Alert
           message={intl.formatMessage({

@@ -2,6 +2,7 @@ import { Button, Form, Input, Tabs } from 'antd';
 import Icon from '@ant-design/icons';
 import imgURL from '../../../assets/image/123.png';
 import './personalCenter.less';
+import styles from './personalCenter.less';
 //图标
 const PhoneSvg = () => (
   <svg viewBox="0 0 21 21" width="21px" height="21px">
@@ -54,12 +55,12 @@ const onFinishFailed = (errorInfo: any) => {
 // 头像
 const ImageAvatar = () => {
   return (
-    <div className="ImageAvatar-box">
-      <img className="Image-Avatar" src={imgURL}></img>
+    <div className={styles.ImageAvatar}>
+      <img className={styles.Avatar} src={imgURL}></img>
       {/* <Avatar size={64} icon={<UserOutlined />} /> */}
-      <div className="Image-Avatar-btn">
+      <div className={styles.Avatarbtn}>
         <span
-          className="Image-Avatar-btn-modify"
+          className={styles.modify}
           onClick={() => {
             console.log('更换头像');
           }}
@@ -78,24 +79,24 @@ const PersonalCenter = () => {
       <Tabs tabPosition="left" animated={false}>
         <TabPane tab="基本设置" key="1" style={{ paddingLeft: '48px' }}>
           <ImageAvatar />
-          <div className="center-Basic-Information">
+          <div className={styles.Information}>
             <span>基本信息</span>
           </div>
-          <div className="center-Basic-Information-box">
+          <div className={styles.InformationBox}>
             <p>手机号码</p>
             <p>手机号码123</p>
           </div>
-          <div className="center-Basic-Information-box">
+          <div className={styles.InformationBox}>
             <p>电子昵称</p>
             <p>手机号码123</p>
           </div>
-          <div className="center-Basic-Information-box">
+          <div className={styles.InformationBox}>
             <p>用户昵称</p>
             <p>手机号码123</p>
           </div>
         </TabPane>
         <TabPane tab="修改密码" key="2" style={{ paddingLeft: '48px' }}>
-          <div className="center-Basic-Information">
+          <div className={styles.Information}>
             <span>设置密码</span>
           </div>
           <Form

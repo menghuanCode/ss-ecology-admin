@@ -3,7 +3,7 @@ import { Button } from 'antd';
 // import UserIcon from './components/userIcon';
 
 import React, { useState, useEffect, useRef } from 'react';
-import './index.less';
+import styles from './index.less';
 import { Modal } from 'antd';
 import PersonalCenter from './components/personalCenter';
 
@@ -51,7 +51,7 @@ const UserIcon: React.FC<UserIconFormProps> = ({ isDisplay, setDisplay }) => {
     console.log('Received values of form: ', values);
     setVisible(false);
   };
-const displayRef = useRef(null);
+  const displayRef = useRef(null);
   useEffect(() => {
     function handler(event) {
       if (!displayRef.current?.contains(event.target)) {
@@ -60,53 +60,57 @@ const displayRef = useRef(null);
     }
     window.addEventListener('click', handler);
     return () => window.removeEventListener('click', handler);
-  },[]);
+  }, []);
 
   return (
-    <div className="user-icon-box" style={{ display: isDisplay ? 'block' : 'none' }} ref={displayRef}>
-      <div className="user-icon-header">
-        <div className="user-icon-avatar">
+    <div
+      className={styles.userIconBox}
+      style={{ display: isDisplay ? 'block' : 'none' }}
+      ref={displayRef}
+    >
+      <div className={styles.userIconHeader}>
+        <div className={styles.userIconAvatar}>
           <img></img>
         </div>
-        <div className="user-icon-nickname">
+        <div className={styles.userIconNickname}>
           <p>财神爷</p>
           <p>您的个人中心</p>
         </div>
       </div>
-      <div className="user-icon-center">
-        <div className="center-icon-Information">
+      <div className={styles.userIconCenter}>
+        <div className={styles.userIconInformation}>
           <span>个人信息</span>
         </div>
-        <div className="center-icon-Information-box">
+        <div className={styles.userIconInformationBox}>
           <p>手机号码</p>
           <p>17638827698</p>
         </div>
-        <div className="center-icon-Information-box">
+        <div className={styles.userIconInformationBox}>
           <p>电子邮箱</p>
           <p>未绑定</p>
         </div>
       </div>
-      <div className="user-icon-footer">
-        <div className="user-icon-btn user-icon-divide">
+      <div className={styles.userIconFooter}>
+        <div className={styles.userIconBtn + ' ' + styles.userIconDivide}>
           <div
-            className="user-btn-hover"
+            className={styles.userIconHover}
             onClick={() => {
               setVisible(true);
               setDisplay(false);
             }}
           >
-            <div className="user-icon user-center"></div>
-            <div className="user-text">用户中心</div>
+            <div className={styles.userIcon + ' ' + styles.userCenter}></div>
+            <div className={styles.userText}>用户中心</div>
           </div>
         </div>
-        <div className="user-icon-btn">
-          <div className="user-btn-hover">
-            <div className="user-icon user-abort"></div>
+        <div className={styles.userIconBtn}>
+          <div className={styles.userIconHover}>
+            <div className={styles.userIcon + ' ' + styles.userAbort}></div>
             <div
               onClick={() => {
                 console.log(123);
               }}
-              className="user-text"
+              className={styles.userText}
             >
               退出登录
             </div>
@@ -123,23 +127,4 @@ const displayRef = useRef(null);
     </div>
   );
 };
-const NewPage = () => {
-  const [isDisplay, setDisplay] = useState(false);
-  return (
-    <div>
-      <Button
-        type="primary"
-        onClick={(e) => {
-          console.log(e,'123');
-          e.nativeEvent.stopImmediatePropagation();
-          setDisplay(!isDisplay);
-        }}
-      >
-        个人中心
-      </Button>
-      <UserIcon setDisplay={setDisplay} isDisplay={isDisplay} />
-    </div>
-  );
-};
-
-export default NewPage;
+export default UserIcon;
