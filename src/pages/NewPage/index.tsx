@@ -1,7 +1,3 @@
-// import React from 'react';
-import { Button } from 'antd';
-// import UserIcon from './components/userIcon';
-
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './index.less';
 import { Modal } from 'antd';
