@@ -1,14 +1,16 @@
-.user-icon-box {
+.userIconBox {
   width: 315px;
   height: 342px;
   opacity: 1;
+  left: 280px;
+  bottom: 20px;
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 2px 16px 3px rgba(39, 38, 42, 0.08);
-  // position: fixed;
-  // z-index: 10000;
+  position: fixed;
+  z-index: 10000;
 
-  .user-icon-header {
+  .userIconHeader {
     display: flex;
     width: 315px;
     height: 154px;
@@ -16,7 +18,7 @@
     padding-left: 30px;
     background-image: url(../../assets/image/gszx_bg.svg);
 
-    .user-icon-avatar {
+    .userIconAvatar {
       width: 62px;
       height: 62px;
       border-radius: 50%;
@@ -24,7 +26,7 @@
       // margin-right: 10px;
     }
 
-    .user-icon-nickname {
+    .userIconNickname {
       padding-left: 10px;
 
       p:first-of-type {
@@ -55,11 +57,11 @@
     }
   }
 
-  .user-icon-center {
+  .userIconCenter {
     padding: 0px 30px;
     cursor: default;
 
-    .center-icon-Information {
+    .userIconInformation {
       width: 64px;
       height: 22px;
       opacity: 1;
@@ -72,7 +74,7 @@
       margin-bottom: 20px;
     }
 
-    .center-icon-Information-box {
+    .userIconInformationBox {
       padding-bottom: 7px;
       display: flex;
 
@@ -104,22 +106,22 @@
       }
     }
 
-    .center-icon-Information-box:last-of-type {
+    .userIconInformationBox:last-of-type {
       padding-top: 7px;
       padding-bottom: 0px;
 
     }
   }
 
-  .user-icon-footer {
+  .userIconFooter {
     width: 100%;
     display: flex;
 
-    .user-icon-btn:first-of-type {
+    .userIconBtn:first-of-type {
       position: relative;
     }
 
-    .user-icon-btn:first-of-type::after {
+    .userIconBtn:first-of-type::after {
       content: " ";
       display: block;
       background: #f3f2f7;
@@ -130,41 +132,38 @@
       top: 46px;
     }
 
-    .user-icon-btn {
+    .userIconBtn {
       width: 50%;
       height: 92px;
       text-align: center;
       padding: 20px 40px;
 
-      .user-btn-hover:hover {
+      .userIconHover:hover {
         cursor: pointer;
 
-        .user-center {
+        .userCenter {
           background-image: url(../../assets/image/grzx_me_d.svg);
         }
 
-        .user-abort {
+        .userAbort {
           background-image: url(../../assets/image/grzx_me_on.svg);
         }
       }
 
-      .user-icon {
+      .userIcon {
         width: 30px;
         height: 30px;
         opacity: 1;
         margin: 0 auto;
         margin-bottom: 4px;
-      }
-
-      .user-center {
         background-image: url(../../assets/image/grzx_me.svg);
       }
 
-      .user-abort {
+      .userAbort {
         background-image: url(../../assets/image/grzx_on.svg);
       }
 
-      .user-text {
+      .userText {
         width: 48px;
         height: 17px;
         opacity: 1;

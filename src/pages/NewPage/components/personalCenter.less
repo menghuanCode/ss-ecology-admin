@@ -2,7 +2,7 @@
   // width: 1029px;
   height: 628px;
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 8px !important;
   box-shadow: 0px 2px 16px 3px rgba(39, 38, 42, 0.08);
   opacity: 1;
 
@@ -128,16 +128,26 @@
 // 输入框样式
 .ant-input-affix-wrapper:hover {
   box-shadow: 0 0 0 2px rgba(112, 59, 235, 0.5);
+
+
 }
 
 .ant-input-affix-wrapper:focus,
 .ant-input-affix-wrapper-focused {
   border: none;
   box-shadow: 0 0 0 2px rgba(112, 59, 235, 1);
+
+  span {
+    svg {
+      g {
+        fill: #703BEB;
+      }
+    }
+  }
 }
 
 // 文本样式
-.center-Basic-Information {
+.Information {
   width: 64px;
   height: 76px;
   // padding-top: ;
@@ -157,20 +167,20 @@
 }
 
 // 头像样式
-.ImageAvatar-box {
+.ImageAvatar {
   position: relative;
   width: 87px;
   height: 87px;
   // background: aqua;
   opacity: 1;
 
-  .Image-Avatar {
+  .Avatar {
     width: 100%;
     height: 100%;
     border-radius: 50%;
   }
 
-  .Image-Avatar-btn {
+  .Avatarbtn {
     position: absolute;
     top: 51px;
     left: 3px;
@@ -181,7 +191,7 @@
     border-radius: 0px 0px 36px 36px;
     opacity: 1;
 
-    .Image-Avatar-btn-modify {
+    .modify {
       width: 34px;
       height: 23px;
       color: #ffffff;
@@ -197,7 +207,7 @@
 
 
 // 基本信息输入框样式
-.center-Basic-Information-box {
+.InformationBox {
   width: 362px;
   height: 52px;
   opacity: 1;
@@ -230,23 +240,4 @@
     line-height: 20px;
     margin: 16px 20px 16px 20px;
   }
-
-  // border-radius: 9px;
 }
-
-// // 保持按钮样式
-// .center-obtain-code-sub {
-//   width: 362px;
-//   height: 52px;
-//   margin-left: -220px;
-//   color: #ffffff;
-//   background: #703beb;
-//   border: 0px;
-//   border-radius: 8px;
-//   opacity: 1;
-// }
-
-// .center-obtain-code-sub:hover {
-//   background: #703beb;
-//   color: #fff;
-// }

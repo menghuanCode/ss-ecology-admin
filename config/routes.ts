@@ -44,10 +44,10 @@
     component: './TableList',
   },
   {
-    name: 'newPage',
+    name: 'noticeCenter',
     icon: 'table',
-    path: '/account/center',
-    component: './NewPage',
+    path: '/notice',
+    component: './NoticeCenter',
   },
   {
     path: '/',
