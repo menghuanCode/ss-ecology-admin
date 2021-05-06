@@ -84,7 +84,6 @@ const Login: React.FC = () => {
       <div className={styles.content}>
         <div className={styles.box}>
           <div className={styles.header}>
-            <Icon component={Icon21Eye1}></Icon>
             <Link to="/">
               <img alt="logo" className={styles.logo} src="/logo.svg" />
               <span className={styles.title}>云界生态管理平台</span>
@@ -129,7 +128,7 @@ const Login: React.FC = () => {
                   <ProFormText
                     name="username"
                     fieldProps={{
-                      prefix: <UserOutlined className={styles.prefixIcon} />,
+                      prefix: <Icon component={Icon21Eye1}></Icon>,
                     }}
                     placeholder={intl.formatMessage({
                       id: 'pages.login.username.placeholder',

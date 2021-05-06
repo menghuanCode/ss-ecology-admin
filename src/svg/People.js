@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const SvgGrzxMe = (props) => (
+const SvgPeople = (props) => (
   <svg width="1em" height="1em" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g fill="currentColor" fillRule="evenodd">
       <path fill="currentColor" d="M7 7h16v16H7z" />
@@ -16,4 +16,4 @@ const SvgGrzxMe = (props) => (
   </svg>
 );
 
-export default SvgGrzxMe;
+export default SvgPeople;

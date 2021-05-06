@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const SvgIcon21Eye1 = (props) => (
+const SvgEye = (props) => (
   <svg width="1em" height="1em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g fill="currentColor" fillRule="nonzero">
       <path d="M18.34 6.352c-2.565 3.207-5.127 4.763-7.693 4.763-2.575 0-5.243-1.567-8-4.787a.934.934 0 00-1.594.303.946.946 0 00.174.926c3.08 3.6 6.22 5.443 9.42 5.443 3.211 0 6.264-1.854 9.153-5.467a.946.946 0 00-.15-1.317.933.933 0 00-1.31.136z" />
@@ -9,4 +9,4 @@ const SvgIcon21Eye1 = (props) => (
   </svg>
 );
 
-export default SvgIcon21Eye1;
+export default SvgEye;

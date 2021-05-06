@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const SvgIcon40Inform = (props) => (
+const SvgBell = (props) => (
   <svg width="1em" height="1em" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g fillRule="nonzero" fill="currentColor">
       <path fill="currentColor" d="M0 0h40v40H0z" />
@@ -12,4 +12,4 @@ const SvgIcon40Inform = (props) => (
   </svg>
 );
 
-export default SvgIcon40Inform;
+export default SvgBell;
