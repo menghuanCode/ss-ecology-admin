@@ -41,6 +41,8 @@ const Login: React.FC = () => {
   const [type, setType] = useState<string>('account');
   const { initialState, setInitialState } = useModel('@@initialState');
 
+  console.log(userLoginState);
+
   const fetchUserInfo = async () => {
     const userInfo = await initialState?.fetchUserInfo?.();
     if (userInfo) {
@@ -69,7 +71,6 @@ const Login: React.FC = () => {
     }
     setSubmitting(false);
   };
-  const { status, type: loginType } = userLoginState;
 
   return (
     <div className={styles.container}>
@@ -91,9 +92,7 @@ const Login: React.FC = () => {
 
           <div className={styles.main}>
             <ProForm
-              initialValues={{
-                autoLogin: true,
-              }}
+              initialValues={{}}
               submitter={{
                 searchConfig: {
                   submitText: '登录',
@@ -108,13 +107,8 @@ const Login: React.FC = () => {
                 handleSubmit(values as API.LoginParams);
               }}
             >
-              {status === 'error' && loginType === 'account' && (
-                <LoginMessage content="账户或密码错误（admin/ant.design)" />
-              )}
-
-              {status === 'error' && loginType === 'mobile' && (
-                <LoginMessage content="验证码错误" />
-              )}
+              <LoginMessage content="用户名或密码错误" />
+              <LoginMessage content="验证码错误" />
               <ProFormText
                 name="username"
                 fieldProps={{
