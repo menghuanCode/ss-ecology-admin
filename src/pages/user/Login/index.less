@@ -1,17 +1,17 @@
 @import '~antd/es/style/themes/default.less';
 
 .container {
-  height: 100vh;
   display: flex;
   min-width: 1000px;
+  height: 100vh;
 }
 
 .decorate {
+  position: relative;
   flex: 1;
   height: 100%;
-  background: #f9f7fe;  
-  position: relative;
-  &_square {
+  background: #f9f7fe;
+  &Square {
     position: absolute;
     top: 10px;
     left: 4px;
@@ -20,7 +20,7 @@
     background: url('~@/assets/image/decorate_square.png') no-repeat left top;
     background-size: contain;
   }
-  &_top {
+  &Top {
     position: absolute;
     top: 0;
     right: 0;
@@ -29,7 +29,7 @@
     background: url('~@/assets/image/decorate_top.png') no-repeat right top;
     background-size: contain;
   }
-  &_main {
+  &Main {
     position: absolute;
     top: 0;
     left: 50%;
@@ -39,7 +39,7 @@
     background-size: contain;
     transform: translate(-50%, 0);
   }
-  &_bottom {
+  &Bottom {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -51,23 +51,23 @@
 }
 
 .content {
-  flex: 1;
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
 }
 
-.content {
-  flex: 1;
+.box {
+  padding: 20px 0;
 }
 
 .header {
   margin-bottom: 60px;
   > a {
-    text-decoration: none;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    text-decoration: none;
   }
 }
 
@@ -79,13 +79,13 @@
 
 .title {
   position: relative;
-  opacity: 1;
+  color: #703beb;
+  font-weight: 600;
   font-size: 28px;
   font-family: PingFangSC, PingFangSC-Semibold;
-  font-weight: 600;
-  text-align: left;
-  color: #703beb;
   line-height: 40px;
+  text-align: left;
+  opacity: 1;
 }
 
 .desc {
@@ -98,43 +98,68 @@
 .main {
   width: 362px;
   margin: 0 auto;
-  @media screen and (max-width: @screen-sm) {
-    width: 95%;
-    max-width: 328px;
-  }
+}
 
-  :global {
-    .@{ant-prefix}-tabs-nav-list {
-      margin: auto;
-      font-size: 16px;
-    }
+.input {
+  padding: 16px 12px;
+  background: #f6f6f6;
+  border: 1px solid #e6e6f1;
+  border-radius: 9px;
+
+  :global(.ant-input) {
+    color: #49495d;
+    font-size: 14px;
+    text-indent: 8px;
+    background-color: transparent;
   }
 
   .icon {
-    margin-left: 16px;
-    color: rgba(0, 0, 0, 0.2);
-    font-size: 24px;
-    vertical-align: middle;
-    cursor: pointer;
-    transition: color 0.3s;
-
-    &:hover {
-      color: @primary-color;
-    }
+    color: #d9d9d9;
+    font-size: 21px;
   }
 
-  .other {
-    margin-top: 24px;
-    line-height: 22px;
-    text-align: left;
-    .register {
-      float: right;
-    }
-  }
-
-  .prefixIcon {
-    color: @primary-color;
-    font-size: @font-size-base;
+  :global(.anticon) {
+    color: #d9d9d9;
+    font-size: 21px;
   }
 }
 
+.captchaInput {
+  margin-bottom: 60px;
+  :global(.ant-btn) {
+    height: 60px;
+    color: #917ef2;
+    background-color: #f6f6f6;
+    border: 1px solid #e6e6f1;
+  }
+}
+
+.submitButton {
+  width: 100%;
+  height: 52px;
+  font-size: 16px;
+  background: #703beb;
+  border-radius: 8px;
+}
+
+.footer {
+  margin-top: 150px;
+  color: #c3c3c3;
+  text-align: center;
+  font-size: 12px;
+}
+
+.list {
+  display: flex;
+  width: 225px;
+  margin: 0 auto 20px;
+  .item {
+    flex: 1;
+  }
+  a {
+    color: #c3c3c3;
+    &:hover {
+      color: #703beb;
+    }
+  }
+}
