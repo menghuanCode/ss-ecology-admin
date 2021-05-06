@@ -1,66 +1,91 @@
 @import '~antd/es/style/themes/default.less';
 
 .container {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
-  overflow: auto;
-  background: @layout-body-background;
+  display: flex;
+  min-width: 1000px;
 }
 
-.lang {
-  width: 100%;
-  height: 40px;
-  line-height: 44px;
-  text-align: right;
-  :global(.ant-dropdown-trigger) {
-    margin-right: 24px;
+.decorate {
+  flex: 1;
+  height: 100%;
+  background: #f9f7fe;  
+  position: relative;
+  &_square {
+    position: absolute;
+    top: 10px;
+    left: 4px;
+    width: 32%;
+    height: 174px;
+    background: url('~@/assets/image/decorate_square.png') no-repeat left top;
+    background-size: contain;
+  }
+  &_top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 36%;
+    height: 166px;
+    background: url('~@/assets/image/decorate_top.png') no-repeat right top;
+    background-size: contain;
+  }
+  &_main {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 80%;
+    height: 100%;
+    background: url('~@/assets/image/decorate_main.png') no-repeat center;
+    background-size: contain;
+    transform: translate(-50%, 0);
+  }
+  &_bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 38%;
+    height: 239px;
+    background: url('~@/assets/image/decorate_bottom.png') no-repeat left bottom;
+    background-size: contain;
   }
 }
 
 .content {
   flex: 1;
-  padding: 32px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (min-width: @screen-md-min) {
-  .container {
-    background-image: url('https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg');
-    background-repeat: no-repeat;
-    background-position: center 110px;
-    background-size: 100%;
-  }
-
-  .content {
-    padding: 32px 0 24px;
-  }
-}
-
-.top {
-  text-align: center;
+.content {
+  flex: 1;
 }
 
 .header {
-  height: 44px;
-  line-height: 44px;
-  a {
+  margin-bottom: 60px;
+  > a {
     text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 .logo {
-  height: 44px;
-  margin-right: 16px;
+  height: 52px;
+  margin-right: 6px;
   vertical-align: top;
 }
 
 .title {
   position: relative;
-  top: 2px;
-  color: @heading-color;
+  opacity: 1;
+  font-size: 28px;
+  font-family: PingFangSC, PingFangSC-Semibold;
   font-weight: 600;
-  font-size: 33px;
-  font-family: Avenir, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  text-align: left;
+  color: #703beb;
+  line-height: 40px;
 }
 
 .desc {
@@ -71,7 +96,7 @@
 }
 
 .main {
-  width: 328px;
+  width: 362px;
   margin: 0 auto;
   @media screen and (max-width: @screen-sm) {
     width: 95%;
@@ -112,3 +137,4 @@
     font-size: @font-size-base;
   }
 }
+

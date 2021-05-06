@@ -87,7 +87,7 @@ const UserIcon: React.FC<UserIconFormProps> = ({ isDisplay, setDisplay }) => {
         </div>
       </div>
       <div className={styles.userIconFooter}>
-        <div className={styles.userIconBtn + ' ' + styles.userIconDivide}>
+        <div className={`${styles.userIconBtn  } ${  styles.userIconDivide}`}>
           <div
             className={styles.userIconHover}
             onClick={() => {
@@ -95,13 +95,13 @@ const UserIcon: React.FC<UserIconFormProps> = ({ isDisplay, setDisplay }) => {
               setDisplay(false);
             }}
           >
-            <div className={styles.userIcon + ' ' + styles.userCenter}></div>
+            <div className={`${styles.userIcon  } ${  styles.userCenter}`}></div>
             <div className={styles.userText}>用户中心</div>
           </div>
         </div>
         <div className={styles.userIconBtn}>
           <div className={styles.userIconHover}>
-            <div className={styles.userIcon + ' ' + styles.userAbort}></div>
+            <div className={`${styles.userIcon  } ${  styles.userAbort}`}></div>
             <div
               onClick={() => {
                 console.log(123);
