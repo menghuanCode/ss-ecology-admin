@@ -1,6 +1,57 @@
 @import '~antd/es/style/themes/default.less';
 
 .container {
+  height: 100vh;
+  display: flex;
+  min-width: 1000px;
+}
+
+.decorate {
+  flex: 1;
+  height: 100%;
+  background: #f9f7fe;  
+  position: relative;
+  &_square {
+    position: absolute;
+    top: 10px;
+    left: 4px;
+    width: 32%;
+    height: 174px;
+    background: url('~@/assets/image/decorate_square.png') no-repeat left top;
+    background-size: contain;
+  }
+  &_top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 36%;
+    height: 166px;
+    background: url('~@/assets/image/decorate_top.png') no-repeat right top;
+    background-size: contain;
+  }
+  &_main {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 80%;
+    height: 100%;
+    background: url('~@/assets/image/decorate_main.png') no-repeat center;
+    background-size: contain;
+    transform: translate(-50%, 0);
+  }
+  &_bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 38%;
+    height: 239px;
+    background: url('~@/assets/image/decorate_bottom.png') no-repeat left bottom;
+    background-size: contain;
+  }
+}
+
+.content {
+  flex: 1;
 }
 
 .lang {
@@ -13,15 +64,6 @@
   }
 }
 
-.bg {
-  width: 45%;
-  height: 100%;
-  // max-width: 650px;
-  background-image: url('/login_bg.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-}
 
 .content {
   flex: 1;

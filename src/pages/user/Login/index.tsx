@@ -79,15 +79,20 @@ const Login: React.FC = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.decorate}>
+        <div className={styles.decorate_square}></div>
+        <div className={styles.decorate_top}></div>
+        <div className={styles.decorate_main}></div>
+        <div className={styles.decorate_bottom}></div>
+      </div>
       <div className={styles.content}>
         <div className={styles.top}>
           <div className={styles.header}>
             <Link to="/">
               <img alt="logo" className={styles.logo} src="/logo.svg" />
-              <span className={styles.title}>Ant Design</span>
+              <span className={styles.title}>云界生态管理平台</span>
             </Link>
           </div>
-          <div className={styles.desc}></div>
         </div>
 
         <div className={styles.main}>
