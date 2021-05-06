@@ -1,15 +1,13 @@
-import {
-  LockOutlined,
-  MobileOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import { LockOutlined, MobileOutlined, UserOutlined } from '@ant-design/icons';
 import { Alert, Space, message, Tabs } from 'antd';
 import React, { useState } from 'react';
 import ProForm, { ProFormCaptcha, ProFormCheckbox, ProFormText } from '@ant-design/pro-form';
 import { useIntl, Link, history, FormattedMessage, SelectLang, useModel } from 'umi';
-import Footer from '@/components/Footer';
 import { login } from '@/services/ant-design-pro/api';
 import { getFakeCaptcha } from '@/services/ant-design-pro/login';
+
+import { Icon21Eye1 } from '@/svg/index';
+import Icon from '@ant-design/icons';
 
 import styles from './index.less';
 
@@ -86,6 +84,7 @@ const Login: React.FC = () => {
       <div className={styles.content}>
         <div className={styles.box}>
           <div className={styles.header}>
+            <Icon component={Icon21Eye1}></Icon>
             <Link to="/">
               <img alt="logo" className={styles.logo} src="/logo.svg" />
               <span className={styles.title}>云界生态管理平台</span>
@@ -130,7 +129,6 @@ const Login: React.FC = () => {
                   <ProFormText
                     name="username"
                     fieldProps={{
-                      size: 'large',
                       prefix: <UserOutlined className={styles.prefixIcon} />,
                     }}
                     placeholder={intl.formatMessage({

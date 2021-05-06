@@ -1,4 +1,5 @@
 import Icon from '@ant-design/icons';
+
 const LightSvg = () => (
   <svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1">
     <g id="编组" transform="translate(10.000000, 6.000000)" fill="#9090A8">

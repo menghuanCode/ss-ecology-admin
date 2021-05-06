@@ -4,6 +4,7 @@ import styles from './index.less';
 import menuIconArry from './icon';
 import UserIcon from '../NewPage/index';
 import { Tooltip } from 'antd';
+
 const ColourSvg = () => (
   <svg viewBox="0 0 40 40" width="40px" height="40px" version="1.1">
     <g fill="#9090a8" transform="translate(8 8)">
