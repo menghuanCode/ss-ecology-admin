@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import Icon from '@ant-design/icons';
 import styles from './index.less';
 import menuIconArry from './icon';
 import UserIcon from '../NewPage/index';
 import { Tooltip } from 'antd';
-<<<<<<< HEAD
 // import { aiaccountUser } from '@/services/test/api';
-=======
->>>>>>> 8ada6c1cc02c8aefe2bec808f553aed349a0f318
 
+import { Yunjie34Logo, People, Colour } from '@/svg/index';
+import Icon from '@ant-design/icons';
 const ColourSvg = () => (
   <svg viewBox="0 0 40 40" width="40px" height="40px" version="1.1">
     <g fill="#9090a8" transform="translate(8 8)">
@@ -212,20 +210,25 @@ const NoticeCenter = () => {
     <div className={styles.customize} style={{ backgroundColor: isDisplay ? '#33333A' : '' }}>
       <div className={styles.box}>
         <div className={styles.logo}>
-          <LogoIcon />
+          {/* <LogoIcon /> */}
+          <Icon component={People}></Icon>
         </div>
         <div className={isDisplay ? styles.iconMenuYellow : styles.iconMenu}>
           {menuIconArry.map((item, key) => {
             return (
-              <Tooltip placement="right" title={text}>
-                <div
-                  key={key}
-                  onClick={() => handleClass(key)}
-                  className={isKey === key ? (isDisplay ? styles.yellowActive : styles.active) : ''}
-                >
-                  {item}
-                </div>
-              </Tooltip>
+              <>
+                <Tooltip placement="right" title={text}>
+                  <div
+                    key={key}
+                    onClick={() => handleClass(key)}
+                    className={
+                      isKey === key ? (isDisplay ? styles.yellowActive : styles.active) : ''
+                    }
+                  >
+                    {item}
+                  </div>
+                </Tooltip>
+              </>
             );
           })}
         </div>
@@ -243,7 +246,8 @@ const NoticeCenter = () => {
         </div>
         <div>
           <Tooltip placement="right" title={'通知中心'}>
-            <InformIcon />
+            <Icon component={Colour} style={{fontSize:'1000px'}}></Icon>
+            {/* <InformIcon /> */}
           </Tooltip>
         </div>
         <div

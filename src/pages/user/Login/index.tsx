@@ -6,7 +6,7 @@ import { useIntl, Link, history, FormattedMessage, SelectLang, useModel } from '
 import { login } from '@/services/ant-design-pro/api';
 import { getFakeCaptcha } from '@/services/ant-design-pro/login';
 
-import { Icon21Eye1 } from '@/svg/index';
+import { Eye } from '@/svg/index';
 import Icon from '@ant-design/icons';
 
 import styles from './index.less';
@@ -128,7 +128,7 @@ const Login: React.FC = () => {
                   <ProFormText
                     name="username"
                     fieldProps={{
-                      prefix: <Icon component={Icon21Eye1}></Icon>,
+                      prefix: <Icon component={Eye}></Icon>,
                     }}
                     placeholder={intl.formatMessage({
                       id: 'pages.login.username.placeholder',
