@@ -141,7 +141,7 @@ const NoticeCenter = () => {
         <div className={styles.logo}>
           <LogoIcon/>
         </div>
-        <div className={styles.iconMenu}>
+        {/* <div className={styles.iconMenu}>
           {menuIconArry.map((item, key) => {
             return (
               <Tooltip placement="right" title={text}>
@@ -155,7 +155,7 @@ const NoticeCenter = () => {
               </Tooltip>
             );
           })}
-        </div>
+        </div> */}
       </div>
       <div className={styles.footer}>
         <div>

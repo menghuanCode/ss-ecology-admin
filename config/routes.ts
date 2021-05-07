@@ -1,4 +1,4 @@
-﻿export default [
+export default [
   {
     path: '/user',
     layout: false,
@@ -19,8 +19,7 @@
     path: '/welcome',
     name: 'welcome',
     icon: 'smile',
-    component: './Welcome',
-    // wrappers: ['@/wrappers/auth'],
+    component: './Welcome', // wrappers: ['@/wrappers/auth'],
   },
   {
     path: '/admin',
@@ -52,6 +51,12 @@
   {
     path: '/',
     redirect: '/welcome',
+  },
+  {
+    name: 'tag.hot',
+    icon: 'smile',
+    path: '/tag/hot',
+    component: './tag/Hot',
   },
   {
     component: './404',
