@@ -2,8 +2,7 @@ import { Alert, Space, message, Tabs, Form, Input, Button, Checkbox } from 'antd
 import React, { useState } from 'react';
 import ProForm, { ProFormCaptcha, ProFormText } from '@ant-design/pro-form';
 import { useIntl, Link, history, FormattedMessage, SelectLang, useModel } from 'umi';
-import { login } from '@/services/ant-design-pro/api';
-import { getLoginCaptcha } from '@/services/sheshu/login';
+import { login, getLoginCaptcha } from '@/services/sheshu/login';
 
 import { Eye, ShutEye, Me, Lock, Security } from '@/svg/index';
 import Icon from '@ant-design/icons';
@@ -13,7 +12,6 @@ import classnames from 'classnames';
 import styles from './index.less';
 import { useEffect } from 'react';
 import _ from 'lodash';
-import { useRef } from 'react';
 
 const LoginMessage: React.FC<{
   content: string;
@@ -45,41 +43,40 @@ const captchaCodeRender = (src) => {
 const Login: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
 
-  const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
+  const [userLoginState, setUserLoginState] = useState<API.LoginResult>(null);
   const [captchResult, setCaptchResult] = useState<API.captchResult>({});
-
-  const [type, setType] = useState<string>('account');
-  const [loginForm] = Form.useForm()
+  const [loginForm] = Form.useForm();
   const { initialState, setInitialState } = useModel('@@initialState');
 
-  const fetchUserInfo = async () => {
-    const userInfo = await initialState?.fetchUserInfo?.();
-    if (userInfo) {
-      setInitialState({
-        ...initialState,
-        currentUser: userInfo,
-      });
-    }
+  const errorCode = _.get(userLoginState, '')
+
+  const fetchCaptcha = async () => {
+    const result = await getLoginCaptcha();
+    setCaptchResult(result);
   };
 
   useEffect(() => {
-    getLoginCaptcha().then(setCaptchResult);
+    fetchCaptcha();
   }, []);
 
   const handleSubmit = async (values: API.LoginParams) => {
     setSubmitting(true);
     try {
       // 登录
-      const msg = await login({ ...values, type });
-      if (msg.status === 'ok') {
+      const data = { ...values };
+      data.captcha_id = _.get(captchResult, 'captcha_id', '');
+      const msg = await login(data);
+      if (msg.code === 0) {
         message.success('登录成功！');
-        await fetchUserInfo();
         goto();
         return;
       }
-      // 如果失败去设置用户错误信息
-      setUserLoginState(msg);
+
     } catch (error) {
+      // 如果失败去设置用户错误信息
+      const { data } = error;
+      setUserLoginState(data);
+      await fetchCaptcha();
       message.error('登录失败，请重试！');
     }
     setSubmitting(false);
@@ -202,11 +199,11 @@ const Login: React.FC = () => {
                     },
                   ]}
                   onGetCaptcha={async (phone) => {
-                    console.log(loginForm.resetFields);
                     const result = await getLoginCaptcha();
-                    // loginForm.resetFields(['captcha']);
-                    setCaptchResult(result)
-                    
+                    setCaptchResult(result);
+                    setTimeout(function () {
+                      loginForm.resetFields(['captcha']);
+                    }, 0);
                   }}
                 />
               </div>

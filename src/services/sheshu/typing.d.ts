@@ -7,6 +7,13 @@ declare namespace API {
     username: string;
   };
 
+  type LoginResult = {
+    code: number;
+    msg?: string;
+    request_id?: string;
+    status_code?: number;
+  };
+
   // 验证码
   type captchResult = {
     code?: string;

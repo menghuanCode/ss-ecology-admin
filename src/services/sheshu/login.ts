@@ -6,3 +6,12 @@ import { request } from 'umi';
 export async function getLoginCaptcha() {
   return request('/api/auth/v1/captcha');
 }
+
+/** 登录接口 POST /api/auth/v1/login */
+export async function login(data: API.LoginParams, options?: { [key: string]: any }) {
+  return request<Record<string, any>>('/api/auth/v1/login', {
+    method: 'POST',
+    data,
+    ...(options || {}),
+  });
+}

@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import type { ResponseError } from 'umi-request';
 import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
 import Icon, { BookOutlined } from '@ant-design/icons';
+
 const PassWordSvg = () => (
   <svg
     viewBox="0 0 40 40"
@@ -130,10 +131,10 @@ const errorHandler = (error: ResponseError) => {
     const errorText = codeMessage[response.status] || response.statusText;
     const { status, url } = response;
 
-    notification.error({
-      message: `请求错误 ${status}: ${url}`,
-      description: errorText,
-    });
+    // notification.error({
+    //   message: `请求错误 ${status}: ${url}`,
+    //   description: errorText,
+    // });
   }
 
   if (!response) {
