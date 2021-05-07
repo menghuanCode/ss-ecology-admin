@@ -57,6 +57,7 @@
     "antd": "^4.14.0",
     "classnames": "^2.3.1",
     "crypto-js": "^4.0.0",
+    "loadsh": "^0.0.4",
     "lodash": "^4.17.11",
     "moment": "^2.25.3",
     "omit.js": "^2.0.2",

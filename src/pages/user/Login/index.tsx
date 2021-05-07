@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ProForm, { ProFormCaptcha, ProFormText } from '@ant-design/pro-form';
 import { useIntl, Link, history, FormattedMessage, SelectLang, useModel } from 'umi';
 import { login } from '@/services/ant-design-pro/api';
-import { getFakeCaptcha } from '@/services/ant-design-pro/login';
+import { getLoginCaptcha } from '@/services/sheshu/login';
 
 import { Eye, ShutEye, Me, Lock, Security } from '@/svg/index';
 import Icon from '@ant-design/icons';
@@ -11,6 +11,9 @@ import Icon from '@ant-design/icons';
 import classnames from 'classnames';
 
 import styles from './index.less';
+import { useEffect } from 'react';
+import _ from 'lodash';
+import { useRef } from 'react';
 
 const LoginMessage: React.FC<{
   content: string;
@@ -35,13 +38,19 @@ const goto = () => {
   }, 10);
 };
 
+const captchaCodeRender = (src) => {
+  return <img src={src} alt="" className={styles.captchaCode} />;
+};
+
 const Login: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
-  const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
-  const [type, setType] = useState<string>('account');
-  const { initialState, setInitialState } = useModel('@@initialState');
 
-  console.log(userLoginState);
+  const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
+  const [captchResult, setCaptchResult] = useState<API.captchResult>({});
+
+  const [type, setType] = useState<string>('account');
+  const [loginForm] = Form.useForm()
+  const { initialState, setInitialState } = useModel('@@initialState');
 
   const fetchUserInfo = async () => {
     const userInfo = await initialState?.fetchUserInfo?.();
@@ -52,6 +61,10 @@ const Login: React.FC = () => {
       });
     }
   };
+
+  useEffect(() => {
+    getLoginCaptcha().then(setCaptchResult);
+  }, []);
 
   const handleSubmit = async (values: API.LoginParams) => {
     setSubmitting(true);
@@ -92,6 +105,7 @@ const Login: React.FC = () => {
 
           <div className={styles.main}>
             <ProForm
+              form={loginForm}
               initialValues={{}}
               submitter={{
                 searchConfig: {
@@ -140,19 +154,16 @@ const Login: React.FC = () => {
                   },
                 ]}
               />
-              <div className={styles.captchaInput}>
+              {/* <div className={styles.captchaInput}>
                 <ProFormCaptcha
                   fieldProps={{
                     prefix: <Icon component={Security} className={styles.icon} />,
                     className: styles.input,
                   }}
-                  captchaProps={{
-                    size: 'large',
-                  }}
                   placeholder="请输入验证码"
                   captchaTextRender={(timing, count) => {
                     if (timing) {
-                      return `${count} 获取验证码`;
+                      return `${count}s`;
                     }
                     return '获取验证码';
                   }}
@@ -164,13 +175,38 @@ const Login: React.FC = () => {
                     },
                   ]}
                   onGetCaptcha={async (phone) => {
-                    const result = await getFakeCaptcha({
-                      phone,
-                    });
+                    const result = await getLoginCaptcha();
                     if (result === false) {
                       return;
                     }
                     message.success('获取验证码成功！验证码为：1234');
+                  }}
+                />
+              </div> */}
+              <div className={styles.captchaInput}>
+                <ProFormCaptcha
+                  fieldProps={{
+                    prefix: <Icon component={Security} className={styles.icon} />,
+                    className: styles.input,
+                  }}
+                  placeholder="请输入验证码"
+                  captchaTextRender={(timing, count) => {
+                    const captcha_image = _.get(captchResult, 'captcha_image');
+                    return captchaCodeRender(captcha_image);
+                  }}
+                  name="captcha"
+                  rules={[
+                    {
+                      required: true,
+                      message: '请输入验证码！',
+                    },
+                  ]}
+                  onGetCaptcha={async (phone) => {
+                    console.log(loginForm.resetFields);
+                    const result = await getLoginCaptcha();
+                    // loginForm.resetFields(['captcha']);
+                    setCaptchResult(result)
+                    
                   }}
                 />
               </div>
