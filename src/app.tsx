@@ -135,7 +135,12 @@ const errorHandler = (error: ResponseError) => {
       description: errorText,
     });
   }
-
+  if(response.status===403){
+    history.push('/403')
+  }
+  if(response.status===500){
+    history.push('/500')
+  }
   if (!response) {
     notification.error({
       description: '您的网络发生异常，无法连接服务器',

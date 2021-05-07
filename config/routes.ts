@@ -56,4 +56,10 @@
   {
     component: './404',
   },
+  {
+    component: './403',
+  },
+  {
+    component: './500',
+  },
 ];
