@@ -12,7 +12,7 @@ const parseValue = (value: any) => {
 };
 
 export const storage = {
-  name: 'ss-new-admin',
+  name: 'ss_ecology_admin',
   get(key: string) {
     const value = localStorage.getItem(`${this.name}_${key}`);
     return parseValue(value);

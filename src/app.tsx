@@ -5,9 +5,10 @@ import type { RequestConfig, RunTimeLayoutConfig } from 'umi';
 import { history, Link } from 'umi';
 import RightContent from '@/components/RightContent';
 import Footer from '@/components/Footer';
-import type { ResponseError } from 'umi-request';
+import type { RequestOptionsInit, ResponseError } from 'umi-request';
 import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
 import Icon, { BookOutlined } from '@ant-design/icons';
+import { storage } from '@/utils/storage';
 
 // const PassWordSvg = () => (
 //   <svg
@@ -44,26 +45,26 @@ export async function getInitialState(): Promise<{
   currentUser?: API.CurrentUser;
   fetchUserInfo?: () => Promise<API.CurrentUser | undefined>;
 }> {
-  // const fetchUserInfo = async () => {
-  //   try {
-  //     const currentUser = await queryCurrentUser();
-  //     return currentUser;
-  //   } catch (error) {
-  //     history.push(loginPath);
-  //   }
-  //   return undefined;
-  // };
-  // // 如果是登录页面，不执行
-  // if (history.location.pathname !== loginPath) {
-  //   const currentUser = await fetchUserInfo();
-  //   return {
-  //     fetchUserInfo,
-  //     currentUser,
-  //     settings: {},
-  //   };
-  // }
+  const fetchUserInfo = async () => {
+    try {
+      const currentUser = await queryCurrentUser();
+      return currentUser;
+    } catch (error) {
+      history.push(loginPath);
+    }
+    return undefined;
+  };
+  // 如果是登录页面，不执行
+  if (history.location.pathname !== loginPath) {
+    const currentUser = await fetchUserInfo();
+    return {
+      fetchUserInfo,
+      currentUser,
+      settings: {},
+    };
+  }
   return {
-    // fetchUserInfo,
+    fetchUserInfo,
     settings: {},
   };
 }
@@ -89,9 +90,9 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
           <Link to="/welcome">
             {/* <PassWordIcon style={{ paddingTop: '10px' }} /> */}
             {/* <div className="app-notice-icon"></div> */}
-           </Link>,
+          </Link>,
           <Link to="/welcome">
-             <BookOutlined />
+            <BookOutlined />
             <span>业务组件文档</span>
           </Link>,
         ]
@@ -122,17 +123,14 @@ const codeMessage = {
   504: '网关超时。',
 };
 
-
-
 /** 异常处理程序
  * @see https://beta-pro.ant.design/docs/request-cn
  */
 const errorHandler = (error: ResponseError) => {
   const { response } = error;
   if (response && response.status) {
-    const errorText = codeMessage[response.status] || response.statusText;
-    const { status, url } = response;
-
+    // const errorText = codeMessage[response.status] || response.statusText;
+    // const { status, url } = response;
     // notification.error({
     //   message: `请求错误 ${status}: ${url}`,
     //   description: errorText,
@@ -148,7 +146,16 @@ const errorHandler = (error: ResponseError) => {
   throw error;
 };
 
+const tokenInterceptor = (url: string, options: RequestOptionsInit) => {
+  const token = { 'x-auth-token': storage.get('token') };
+  return {
+    url: `${url}`,
+    options: { ...options, interceptors: true, headers: token },
+  };
+};
+
 // https://umijs.org/zh-CN/plugins/plugin-request
 export const request: RequestConfig = {
   errorHandler,
+  requestInterceptors: [tokenInterceptor],
 };

@@ -10,6 +10,7 @@ declare namespace API {
   type LoginResult = {
     code: number;
     msg?: string;
+    token?: string;
     request_id?: string;
     status_code?: number;
   };

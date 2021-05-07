@@ -7,6 +7,7 @@ import { login, getLoginCaptcha } from '@/services/sheshu/login';
 import { Eye, ShutEye, Me, Lock, Security } from '@/svg/index';
 import Icon from '@ant-design/icons';
 
+import storage from '@/utils/storage';
 import styles from './index.less';
 import { useEffect } from 'react';
 import _ from 'lodash';
@@ -63,9 +64,10 @@ const Login: React.FC = () => {
       // 登录
       const data = { ...values };
       data.captcha_id = _.get(captchResult, 'captcha_id', '');
-      const msg = await login(data);
-      if (msg.code === 0) {
+      const res = await login(data);
+      if (res.code === 0) {
         message.success('登录成功！');
+        storage.set('token', res.token);
         goto();
         return;
       }

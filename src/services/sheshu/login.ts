@@ -9,7 +9,7 @@ export async function getLoginCaptcha() {
 
 /** 登录接口 POST /api/auth/v1/login */
 export async function login(data: API.LoginParams, options?: { [key: string]: any }) {
-  return request<Record<string, any>>('/api/auth/v1/login', {
+  return request<Promise<API.LoginResult>>('/api/auth/v1/login', {
     method: 'POST',
     data,
     ...(options || {}),
