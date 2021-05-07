@@ -1,13 +1,11 @@
-import { Alert, Space, message, Tabs, Form, Input, Button, Checkbox } from 'antd';
+import { Alert, message, Form } from 'antd';
 import React, { useState } from 'react';
 import ProForm, { ProFormCaptcha, ProFormText } from '@ant-design/pro-form';
-import { useIntl, Link, history, FormattedMessage, SelectLang, useModel } from 'umi';
+import { Link, history } from 'umi';
 import { login, getLoginCaptcha } from '@/services/sheshu/login';
 
 import { Eye, ShutEye, Me, Lock, Security } from '@/svg/index';
 import Icon from '@ant-design/icons';
-
-import classnames from 'classnames';
 
 import styles from './index.less';
 import { useEffect } from 'react';
@@ -49,6 +47,11 @@ const Login: React.FC = () => {
   const errorCode = _.get(userLoginState, 'code', 0);
 
   const fetchCaptcha = () => getLoginCaptcha().then(setCaptchResult);
+  const resetCaptcha = () => {
+    setTimeout(() => {
+      loginForm.resetFields(['captcha']);
+    }, 0);
+  };
 
   useEffect(() => {
     fetchCaptcha();
@@ -71,6 +74,7 @@ const Login: React.FC = () => {
       const { data } = error;
       setUserLoginState(data);
       await fetchCaptcha();
+      resetCaptcha();
       message.error('登录失败，请重试！');
     }
     setSubmitting(false);
@@ -102,6 +106,7 @@ const Login: React.FC = () => {
                 searchConfig: {
                   submitText: '登录',
                 },
+                // eslint-disable-next-line @typescript-eslint/no-shadow
                 render: (_, dom) => dom.pop(),
                 submitButtonProps: {
                   loading: submitting,
@@ -196,9 +201,7 @@ const Login: React.FC = () => {
                   onGetCaptcha={async (phone) => {
                     const result = await getLoginCaptcha();
                     setCaptchResult(result);
-                    setTimeout(() => {
-                      loginForm.resetFields(['captcha']);
-                    }, 0);
+                    resetCaptcha();
                   }}
                 />
               </div>
