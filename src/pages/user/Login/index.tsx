@@ -46,14 +46,9 @@ const Login: React.FC = () => {
   const [userLoginState, setUserLoginState] = useState<API.LoginResult>(null);
   const [captchResult, setCaptchResult] = useState<API.captchResult>({});
   const [loginForm] = Form.useForm();
-  const { initialState, setInitialState } = useModel('@@initialState');
+  const errorCode = _.get(userLoginState, 'code', 0);
 
-  const errorCode = _.get(userLoginState, '')
-
-  const fetchCaptcha = async () => {
-    const result = await getLoginCaptcha();
-    setCaptchResult(result);
-  };
+  const fetchCaptcha = () => getLoginCaptcha().then(setCaptchResult);
 
   useEffect(() => {
     fetchCaptcha();
@@ -71,7 +66,6 @@ const Login: React.FC = () => {
         goto();
         return;
       }
-
     } catch (error) {
       // 如果失败去设置用户错误信息
       const { data } = error;
@@ -118,8 +112,9 @@ const Login: React.FC = () => {
                 handleSubmit(values as API.LoginParams);
               }}
             >
-              <LoginMessage content="用户名或密码错误" />
-              <LoginMessage content="验证码错误" />
+              {errorCode === 400404 && <LoginMessage content="用户名或密码错误" />}
+              {errorCode === 404402 && <LoginMessage content="验证码错误" />}
+
               <ProFormText
                 name="username"
                 fieldProps={{
@@ -201,7 +196,7 @@ const Login: React.FC = () => {
                   onGetCaptcha={async (phone) => {
                     const result = await getLoginCaptcha();
                     setCaptchResult(result);
-                    setTimeout(function () {
+                    setTimeout(() => {
                       loginForm.resetFields(['captcha']);
                     }, 0);
                   }}
