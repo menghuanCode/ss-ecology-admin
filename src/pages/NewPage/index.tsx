@@ -3,7 +3,7 @@ import styles from './index.less';
 import { Modal } from 'antd';
 import PersonalCenter from './components/personalCenter';
 
-import { Userme } from '@/svg/index';
+import { Userme, Dropout } from '@/svg/index';
 import Icon from '@ant-design/icons';
 interface Values {
   title: string;
@@ -98,14 +98,16 @@ const UserIcon: React.FC<UserIconFormProps> = ({ isDisplay, setDisplay }) => {
             }}
           >
             <div className={`${styles.userIcon} ${styles.userCenter}`}>
-              <Icon component={Userme} className={styles.userMeIcon}></Icon>
+              <Icon component={Userme} ></Icon>
             </div>
             <div className={styles.userText}>用户中心</div>
           </div>
         </div>
         <div className={styles.userIconBtn}>
           <div className={styles.userIconHover}>
-            <div className={`${styles.userIcon} ${styles.userAbort}`}></div>
+            <div className={`${styles.userIcon} ${styles.userAbort}`}>
+              <Icon component={Dropout} ></Icon>
+            </div>
             <div
               onClick={() => {
                 console.log(123);
