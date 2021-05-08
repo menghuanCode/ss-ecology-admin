@@ -4,7 +4,7 @@ import menuIconArry from './icon';
 import UserIcon from '../NewPage/index';
 import { Tooltip } from 'antd';
 // import { aiaccountUser } from '@/services/test/api';
-// import _ from 'lodash'
+import _ from 'lodash'
 import { Ask, Colour,Inform } from '@/svg/index';
 import Icon from '@ant-design/icons';
 
@@ -214,6 +214,7 @@ const NoticeCenter = () => {
           onClick={(e) => {
             e.nativeEvent.stopImmediatePropagation();
             setDisplay(!isDisplay);
+            console.log(_.map,123);
           }}
         ></div>
       </div>
