@@ -1,13 +1,10 @@
 // @ts-ignore
 /* eslint-disable */
-import { request } from 'umi';
-
-/** 发送验证码 GET /api/auth/v1/captcha */
-export async function getLoginCaptcha() {
-  return request('/api/auth/v1/captcha');
-}
-
-/** 登录 POST /api/auth/v1/login */
-export async function login() {
-  return request('/api/auth/v1/login');
-}
+// API 更新时间：
+// API 唯一标识：
+import * as article from './article';
+import * as login from './login';
+export default {
+  article,
+  login,
+};
