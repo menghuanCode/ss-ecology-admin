@@ -30,11 +30,11 @@ const columns: ProColumns<TableListItem>[] = [
     },
     render: (_, record) => {
       if (_ === 'close') {
-        return <span className="disabled-tag">禁用</span>;
+        return <span className="tag disabled-tag">禁用</span>;
       }
 
        
-        return <span className="enabled-tag">启用</span>;
+        return <span className="tag enabled-tag">启用</span>;
     },
   },
   {
