@@ -81,3 +81,11 @@ export async function removeRule(options?: { [key: string]: any }) {
     ...(options || {}),
   });
 }
+
+/** 此处后端没有提供注释 GET /api/notices */
+export async function getError(options?: { [key: string]: any }) {
+  return request<API.NoticeIconList>('/api/403', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}

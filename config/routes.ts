@@ -57,9 +57,15 @@
     component: './404',
   },
   {
+    exact:false,
     component: './403',
+    Path:'/403',
+    name:'Unauthorized',
   },
   {
+    exact:false,
     component: './500',
+    Path:'/500',
+    name:'ServerError',
   },
 ];
